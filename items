@@ -1,0 +1,12 @@
+{"_id" : 101, "name" : "Mac Pro", "category" : "MacBook", "price" : 3999, "stock" : 5, "description" : "3.5GHz 6-Core Intel Xeon E5 processor 16GB 1866MHz DDR3 ECC memory Dual AMD FirePro D500 with 3GB GDDR5 VRAM each 256GB PCIe-based flash storage"}
+{"_id" : 102, "name" : "MacBook Pro", "category" : "MacBook", "price" : 1999, "stock" : 2, "description" : "2.9GHz dual-core Intel Core i5 processor Turbo Boost up to 3.3GHz 8GB 2133MHz memory 512GB PCIe-based SSD1 Intel Iris Graphics 550 Four Thunderbolt 3 ports Touch Bar and Touch ID"}
+{"_id" : 103, "name" : "MacBook Air", "category" : "MacBook", "price" : 1199, "stock" : 10, "description" : "1.6GHz dual-core Intel Core i5 Turbo Boost up to 2.7GHz Intel HD Graphics 6000 8GB memory 256GB PCIe-based flash storage"}
+{"_id" : 201, "name" : "iPad Pro", "category" : "iPad", "price" : 799, "stock" : 8, "description" : "9.7-inch iPad Pro Wi-Fi 256GB - Silver"}
+{"_id" : 202, "name" : "iPad Air 2", "category" : "iPad", "price" : 499, "stock" : 2, "description" : "9,7-inch iPad Air 2 Wi-Fi 128GB - Gold"}
+{"_id" : 203, "name" : "iPad mini 4", "category" : "iPad", "price" : 499, "stock" : 6, "description" : "7,9-inch iPad mini 4 Wi-Fi 128GB - Space Gray"}
+{"_id" : 301, "name" : "iPhone 7", "category" : "iPhone", "price" : 649, "stock" : 4, "description" : "128GB - Gold"}
+{"_id" : 302, "name" : "iPhone 7 Plus", "category" : "iPhone", "price" : 799, "stock" : 1, "description" : "128GB - Space Gray"}
+{"_id" : 303, "name" : "iPhone 6s", "category" : "iPhone", "price" : 599, "stock" : 6, "description" : "128GB - Gold"}
+{"_id" : 304, "name" : "iPhone 6s Plus", "category" : "iPhone", "price" : 699, "stock" : 10, "description" : "128GB - Silver"}
+{"_id" : 401, "name" : "Apple Watch Series 1", "category" : "Watch", "price" : 399, "stock" : 2, "description" : "Gold Aluminum Case with Cocoa Sport Band"}
+{"_id" : 402, "name" : "Apple Watch Series 2", "category" : "Watch", "price" : 269, "stock" : 3, "description" : "Rose Gold Aluminum Case with Pink Sand Sport Band"}
