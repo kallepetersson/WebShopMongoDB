@@ -1,2 +1,2 @@
-{ "_id" : 1, "firstName" : "Kalle" , "lastName" : "Petersson" , "contact" : { "phone" : "12345" , "address" : "Hejvägen 2" , "city" : "Växjö" , "zipcode" : 1337 , "email" : "kalle@mail.com"}, "orders" : []}
-{ "_id" : 2, "firstName" : "Chrstoffer" , "lastName" : "Tronje" , "contact" : { "phone" : "007" , "address" : "Tjenavägen 2" , "city" : "Växjö" , "zipcode" : 1337 , "email" : "vibb@sageofthesixpath.com"}, "orders" : []}
+{ "_id" : ObjectId("587bbcbab4032cff8919a269"), "firstName" : "Kalle" , "lastName" : "Petersson" , "contact" : { "phone" : "12345" , "address" : "Hejvägen 2" , "city" : "Växjö" , "zipcode" : 1337 , "email" : "kalle@mail.com"}, "orders" : []}
+{ "_id" : ObjectId("587bbcc6b4032cff8919a26a"), "firstName" : "Christoffer" , "lastName" : "Tronje" , "contact" : { "phone" : "007" , "address" : "Tjenavägen 2" , "city" : "Växjö" , "zipcode" : 1337 , "email" : "vibb@sageofthesixpath.com"}, "orders" : []}

@@ -77,45 +77,6 @@ public class console {
         System.out.print("Enter " + info + ": ");
     }
 
-    public void displayLine() {
-        System.out.println("---------------------------------------------------------------------");
-    }
-
-    public void displayOrderInfo(ArrayList<String> ordersInfo) {
-        System.out.println("ID: " + ordersInfo.get(0) + " | Order Date: " + ordersInfo.get(1) +
-                " | Shipped Date: " + ordersInfo.get(2));
-    }
-
-    public void displayItemInfoPrevOrder(ArrayList<String> orderItems, ArrayList<String> itemInfo) {
-        System.out.println(orderItems.get(1) + " " + itemInfo.get(0) + " Price: " + itemInfo.get(1));
-
-
-    }
-
-    public void displayAllOrders(ArrayList<ArrayList<String>> allOrders) {
-        for (int i = 0; i < allOrders.size(); i++) {
-            System.out.println("Order ID: " + allOrders.get(i).get(0) + " | Customer ID: " + allOrders.get(i).get(1) + " | Order Date: " + allOrders.get(i).get(2) +
-                    " | Shipped Date: " + allOrders.get(i).get(3));
-        }
-    }
-
-    public void displayAllItemsInOrder(DBObject orderInfo) {
-//        System.out.println("Item ID | Quantity");
-//        for (int i = 0; i < orderInfo.size(); i++) {
-//            for (int j = 0; j < orderInfo.get(i).size(); j++) {
-//                System.out.print(orderInfo.get(i).get(j) + " ");
-//            }
-//            System.out.println();
-//        }
-    }
-
-    public void displayTotalPrice(int totalPrice) {
-        System.out.println("Total Price: " + totalPrice);
-    }
-
-    public void customerIdDontExist(int id) {
-        System.out.println("ID " + id + " doesn't exist in the database");
-    }
 
     public void newCustomer(String customer) {
         System.out.println("Your Customer id: " + customer);

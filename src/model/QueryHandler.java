@@ -40,7 +40,6 @@ public class QueryHandler {
     }
 
     public void deleteItem(String name) {
-
         DBCollection items = db.getCollection("items");
         BasicDBObject query = new BasicDBObject("name", name);
         items.remove(query);
@@ -130,7 +129,8 @@ public class QueryHandler {
         }
 
         DBCollection customers = db.getCollection("customers");
-        BasicDBObject query = new BasicDBObject("_id", Integer.valueOf(customerID));
+        ObjectId id = new ObjectId(customerID);
+        BasicDBObject query = new BasicDBObject("_id", id);
 
         Date now = new Date();
 
@@ -142,17 +142,15 @@ public class QueryHandler {
         BasicDBObject update = new BasicDBObject("$push", order);
 
         customers.update(query, update);
-
         return orderID;
 
     }
 
-
     public String displayCustomerName(String customerID) {
         String name = "";
-        System.out.println(customerID);
         DBCollection collection = db.getCollection("customers");
-        BasicDBObject query = new BasicDBObject("_id", Integer.valueOf(customerID));
+        ObjectId id = new ObjectId(customerID);
+        BasicDBObject query = new BasicDBObject("_id", id);
         BasicDBObject fields = new BasicDBObject("firstName", 1)
                 .append("lastName", 1);
         DBCursor cursor = collection.find(query, fields);
@@ -177,67 +175,29 @@ public class QueryHandler {
         return customer.get("_id").toString();
     }
 
-    public ArrayList<ArrayList<String>> displayCustomerOrders(int customerID) {
-        ArrayList<ArrayList<String>> orderIDs = new ArrayList<>();
-        try {
-            PreparedStatement ps = connection.prepareStatement("SELECT order_id, order_date, shipped_date FROM orders where customer_id=? ORDER BY order_id");
-            ps.setInt(1, customerID);
-            ResultSet rs = ps.executeQuery();
-            int i = 0;
-            while (rs.next()) {
-                orderIDs.add(new ArrayList<>());
-                orderIDs.get(i).add(rs.getString(1));
-                orderIDs.get(i).add(rs.getString(2));
-                orderIDs.get(i).add(rs.getString(3));
-                i++;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return orderIDs;
-    }
 
-    public BasicDBObject displayOrderedItems(String orderID) {
+    public BasicDBList displayOrderedItems(String orderID) {
         DBCollection customers = db.getCollection("customers");
         BasicDBObject query = new BasicDBObject();
         BasicDBObject field = new BasicDBObject("orders", new BasicDBObject("$elemMatch", new BasicDBObject("_id",new ObjectId(orderID))));
         DBCursor cursor = customers.find(query,field);
-
-        while(cursor.hasNext()){
-            BasicDBList cart = (BasicDBList) cursor.next().get("orders");
-            System.out.println(cart);
-        }
-        return null;
+        BasicDBList cart = (BasicDBList) cursor.next().get("orders");
+        return cart;
     }
 
-    public ArrayList<ArrayList<String>> allOrders() {
-        ArrayList<ArrayList<String>> orderIDs = new ArrayList<>();
-        try {
-            PreparedStatement ps = connection.prepareStatement("SELECT * FROM orders ORDER BY order_id");
-            ResultSet rs = ps.executeQuery();
-            int i = 0;
-            while (rs.next()) {
-                orderIDs.add(new ArrayList<>());
-                orderIDs.get(i).add(rs.getString(1));
-                orderIDs.get(i).add(rs.getString(2));
-                orderIDs.get(i).add(rs.getString(3));
-                orderIDs.get(i).add(rs.getString(4));
-                i++;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return orderIDs;
-    }
 
-    public BasicDBList displayAllOrderAndItemsFromCustomer(int id) {
+
+    public BasicDBList displayAllOrderAndItemsFromCustomer(String id) {
+        ObjectId customerId = new ObjectId(id);
         DBCollection customers = db.getCollection("customers");
-        BasicDBObject query = new BasicDBObject("_id", id);
+        BasicDBObject query = new BasicDBObject("_id", customerId);
         BasicDBObject fields = new BasicDBObject("orders", 1);
         DBCursor cursor = customers.find(query, fields);
         BasicDBList orders = ((BasicDBList) cursor.next().get("orders"));
+
         return orders;
     }
+
 
 
 }

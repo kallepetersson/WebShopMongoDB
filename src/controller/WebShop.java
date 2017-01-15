@@ -36,8 +36,8 @@ public class WebShop {
                 case 1:     // Admin
                     view.loggedInAs("Admin");
 
-                    while(true) {
-                        view.printString("1. Add item to database | 2. Update item | 3. Remove item | 4. See orders | 5. Order info | 10. Logout");
+                    while (true) {
+                        view.printString("1. Add item to database | 2. Update item | 3. Remove item  | 4. Order info | 10. Logout");
                         switch (scan.nextInt()) {
 
                             case 1:     // Add item
@@ -98,13 +98,11 @@ public class WebShop {
                                 model.deleteItem(itemsInCategory.get(selected));
 
                                 break;
+                           //ASJDHAUDFHÖAEgiouHAÖEOGUHAEÖGUHAEÖGOIHAEÖOGIHAEÖGIOH
                             case 4:
-                                view.displayAllOrders(model.allOrders());
-                                break;
-                            case 5:
-                                view.enterInfo("order id: ");
+                                view.enterInfo("order id");
                                 orderId = scan.next();
-                                view.displayAllItemsInOrder(model.displayOrderedItems(orderId));
+                                view.displayAllOrdersAndItems(model.displayOrderedItems(orderId));
                                 break;
                             case 10:
                                 break loop;
@@ -121,14 +119,9 @@ public class WebShop {
                             scan.nextLine();
                             customerID = scan.nextLine();
 
-//                            if (model.userExist(selected)) {
-                                view.loggedInAs(model.displayCustomerName(customerID));
-                                //customerID = selected;
-//                            } else {
-//                                view.customerIdDontExist(selected);
-//                                break;
-//                            }
-//                            System.out.println("tjnaads");
+
+                            view.loggedInAs(model.displayCustomerName(customerID));
+
                             do {
                                 while (true) {
                                     categories = model.getCategories();
@@ -144,26 +137,8 @@ public class WebShop {
                                         case 9:
                                             break loop;
                                         case 7:
-//                                            ArrayList<ArrayList<String>> ordersInfo = model.displayCustomerOrders(customerID);
-//                                            for (int i = 0; i < ordersInfo.size(); i++) {
-//                                                int totalPrice = 0;
-//
-//                                                view.displayLine();
-//                                                view.displayOrderInfo(ordersInfo.get(i));
-//                                                ArrayList<ArrayList<String>> orderItems = model.displayOrderedItems(Integer.valueOf(ordersInfo.get(i).get(0)));
-//
-//                                                for (int j = 0; j < orderItems.size(); j++) {
-//                                                    ArrayList<String> itemInfo = model.getItemInfoByID(Integer.valueOf(orderItems.get(j).get(0)));
-//                                                    view.displayItemInfoPrevOrder(orderItems.get(j), itemInfo);
-//                                                    totalPrice += Integer.valueOf(itemInfo.get(1)) * Integer.valueOf(orderItems.get(j).get(1));
-//                                                }
-//                                                view.displayTotalPrice(totalPrice);
-//                                                if (i == ordersInfo.size() - 1) {
-//                                                    view.displayLine();
-//                                                }
-//                                            }
 
-                                            BasicDBList orderItemInfo = model.displayAllOrderAndItemsFromCustomer(Integer.valueOf(customerID));
+                                            BasicDBList orderItemInfo = model.displayAllOrderAndItemsFromCustomer(customerID);
                                             view.displayAllOrdersAndItems(orderItemInfo);
                                             break;
                                         case 8:
@@ -281,7 +256,6 @@ public class WebShop {
         return itemInfo;
     }
 
-
     public void removeItemFromCart(int id) {
         for (int i = 0; i < cart.size(); i++) {
             if (id == cart.get(i)[0]) {
@@ -294,6 +268,5 @@ public class WebShop {
             }
         }
     }
-
 
 }

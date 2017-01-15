@@ -1,20 +1,11 @@
 package database;
 
-
 import com.mongodb.*;
 import com.mongodb.util.JSON;
-import com.mongodb.util.JSONParseException;
-import com.sun.java_cup.internal.runtime.Scanner;
-import org.bson.types.ObjectId;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+
 
 public class CreateDB {
 
