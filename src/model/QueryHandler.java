@@ -110,6 +110,7 @@ public class QueryHandler {
         int totalPrice = 0;
         System.out.println(customerID);
         BasicDBList orderCart = new BasicDBList();
+        //Adds every items ordered to the DBlist orderCart
         for (int i = 0; i < cart.size(); i++) {
             DBCollection items = db.getCollection("items");
             BasicDBObject query = new BasicDBObject("_id", cart.get(i)[0]);
@@ -134,6 +135,7 @@ public class QueryHandler {
 
         Date now = new Date();
 
+        //Update the database with the order and all items from orderCart.
         BasicDBObject order = new BasicDBObject("orders", new BasicDBObject("_id", new ObjectId())
                 .append("date", now)
                 .append("shippedDate", "Processing")
